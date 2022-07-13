@@ -1,20 +1,21 @@
 class Person {
-    var name: String = "Rugved"
-    var age: Int = 32
+    var name: String = ""
+    var age: Int = 0
 }
 
 fun main(args: Array<String>) {
 
-    /*Scope function: 'with'
+    /*Scope function: 'apply'
     Property 1: Refer to context object by using 'this'
-    Property 2: The return value is the 'lambda result'
+    Property 2: The return value is the 'context object'
     */
-    val person = Person()
-
-    val ageAfterFiveYears = with(person) {
-        println(this.name)
-        println(this.age)
-        age + 5
+    val person = Person().apply() {
+        this.name = "Rugved"
+        this.age = 31
     }
-    println("Age after five years is $ageAfterFiveYears")
+
+    with(person) {
+        println("Name: ${this.name}")
+        println("Age: ${this.age}")
+    }
 }
