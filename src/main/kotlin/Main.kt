@@ -5,17 +5,19 @@ class Person {
 
 fun main(args: Array<String>) {
 
-    /*Scope function: 'apply'
-    Property 1: Refer to context object by using 'this'
+    /*Scope function: 'also' - It performs additional operation
+    Property 1: Refer to context object by using 'it'
     Property 2: The return value is the 'context object'
     */
-    val person = Person().apply() {
-        this.name = "Rugved"
-        this.age = 31
-    }
+    val numberMutableList : MutableList<Int> = mutableListOf(1,2,3,4,5,6,7,8,9)
 
-    with(person) {
-        println("Name: ${this.name}")
-        println("Age: ${this.age}")
+    val duplicateNumList = numberMutableList.also {
+        println("List of elements are: $it")
+        it.add(10)
+        println("List of elements after adding an element: $it")
+        it.remove(10)
+        println("List of elements after removing an element: $it")
     }
+    println("Original numbers: $numberMutableList")
+    println("Duplicate numbers: $duplicateNumList")
 }
