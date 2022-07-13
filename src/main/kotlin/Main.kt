@@ -5,15 +5,16 @@ class Person {
 
 fun main(args: Array<String>) {
 
-    /*Scope function: 'let' - use let function to avoid NullPointerException
-    Property 1: Refer to context object by using 'it'
+    /*Scope function: 'run' - combination of with and let
+    Property 1: Refer to context object by using 'this'
     Property 2: The return value is the 'lambda result'
     */
-    val name: String? = "rugved"
+    val person: Person? = null
 
-    name?.let {
-        println("Reversed: ${it.reversed()}")
-        println("Capitalized: ${it.capitalize()}")
-        println("Length: ${it.length}")
+    val ageAfterFiveYears = person?.run {
+        println(this.name)
+        println(this.age)
+        this.age + 5
     }
+    println("Age after five years is $ageAfterFiveYears")
 }
