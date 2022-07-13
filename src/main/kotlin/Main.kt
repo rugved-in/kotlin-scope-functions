@@ -11,8 +11,10 @@ fun main(args: Array<String>) {
     */
     val person = Person()
 
-    with(person) {
+    val ageAfterFiveYears = with(person) {
         println(this.name)
         println(this.age)
+        age + 5
     }
+    println("Age after five years is $ageAfterFiveYears")
 }
